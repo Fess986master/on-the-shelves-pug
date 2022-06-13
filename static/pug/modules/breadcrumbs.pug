@@ -1,14 +1,21 @@
+//- миксин для хлебных крошек. Включена логика дополнительных аттрибутов для добавления класса breadcrumbs__link--slash
+
+mixin breadcrumbs(text, href, isActive)
+  if isActive
+    li.breadcrumbs__item
+      span.breadcrumbs__text= text
+  else
+    li.breadcrumbs__item
+        a.breadcrumbs__link(href= href)&attributes(attributes)= text
+
 section.breadcrumbs
   .container
     ul.breadcrumbs__list
-      li.breadcrumbs__item
-        a.breadcrumbs__link(href='index.html') Главная страница
+      +breadcrumbs('Главная страница', 'index.html')
       if pageClass === "catalog-page"
-        li.breadcrumbs__item
-          span.breadcrumbs__text(href='index.html') Каталог книг
+        +breadcrumbs('Каталог книг', '', true)
       else if pageClass === "book-page"
-        li.breadcrumbs__item
-          a.breadcrumbs__link.breadcrumbs__link--slash(href='catalog.html') Каталог книг
-        li.breadcrumbs__item
-          span.breadcrumbs__text Железный король
+        +breadcrumbs('Каталог книг', 'catalog.html')(class= 'breadcrumbs__link--slash')
+        +breadcrumbs('Железный король', '', true)
+
 
