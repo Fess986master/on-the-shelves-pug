@@ -1,0 +1,33 @@
+mixin navItem(title)
+  li.footer-nav__sub-item
+    a.footer-nav__link= title
+nav.footer__nav
+  footer__nav-list.footer-nav
+    li.footer-nav__item
+      h4.footer-nav__title Меню
+      ul.footer-nav__sub-list
+        +navItem('Главная')
+        +navItem('Каталог книг')
+        +navItem('Оплата и доставка')
+        +navItem('Контакты')
+    li.footer-nav__item
+      h4.footer-nav__title Интересно
+      ul.footer-nav__sub-list
+        +navItem('Новости')
+        +navItem('Акции')
+        +navItem('Блог')
+        +navItem('Скидки')
+    li.footer-nav__item
+      h4.footer-nav__title Важно
+      ul.footer-nav__sub-list
+        +navItem('Возврат')
+        +navItem('Сертификаты')
+        +navItem('Предзаказы')
+        +navItem('Конкурсы')
+    li.footer-nav__item
+      h4.footer-nav__title Адрес
+      ul.footer-nav__sub-list
+        li.footer-nav__sub-item
+          p.footer-nav__text г. Санкт-Петербург, #[br] наб. Pеки Карповки, 5 корпус П
+        li.footer-nav__sub-item
+          a.footer-nav__link(href="tel:+78005558628") +7 800 555 86 28
